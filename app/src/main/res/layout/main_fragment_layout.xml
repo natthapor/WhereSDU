@@ -68,6 +68,16 @@
 
         </LinearLayout>
 
+         <TextView
+             android:id="@+id/txtNewRegister"
+             android:clickable="true"
+             android:textColor="@color/colorPrimaryDark"
+             android:textSize="@dimen/h1"
+             android:textStyle="bold"
+             android:text="@string/new_register"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" />
+
 
     </LinearLayout>
 
