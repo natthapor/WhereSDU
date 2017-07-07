@@ -6,15 +6,22 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
+import sdu.phewma.nattha.wheresdu.MyAlert;
 import sdu.phewma.nattha.wheresdu.R;
 
 /**
  * Created by Nattha on 7/6/2017.
  */
 
-public class RegisterFragment extends Fragment{
+public class RegisterFragment extends Fragment {
+
+    // Explicit
+
+    private String nameString, userString, passwordString;
 
     public static RegisterFragment registerInstance() {
         RegisterFragment registerFragment = new RegisterFragment();
@@ -29,7 +36,7 @@ public class RegisterFragment extends Fragment{
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View view =inflater.inflate(R.layout.register_fragment_layout, container, false);
+        View view = inflater.inflate(R.layout.register_fragment_layout, container, false);
 
         return view;
     }   // onCreateView
@@ -39,6 +46,54 @@ public class RegisterFragment extends Fragment{
         super.onActivityCreated(savedInstanceState);
 
         //Back Controller
+        backController();
+
+        // New Register Controller
+        newRegisterController();
+
+
+    }  //OnActivityCreate
+
+    private void newRegisterController() {
+
+        //Initial View
+        final EditText nameEditText = (EditText) getView().findViewById(R.id.edtName);
+        final EditText userEditText = (EditText) getView().findViewById(R.id.edtUser);
+        final EditText passwordText = (EditText) getView().findViewById(R.id.edtPassword);
+        Button button = (Button) getView().findViewById(R.id.btnNewRegister);
+
+        // Get Event From Click New Register
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Get Value for Edit Text
+                nameString = nameEditText.getText().toString().trim();
+                userString = userEditText.getText().toString().trim();
+                passwordString = passwordText.getText().toString().trim();
+
+                // Check Space
+                if(nameString.length() == 0 || userString.length() == 0
+                        || passwordString.length() == 0) {
+                    //Have Space
+                    MyAlert myAlert =new MyAlert(getActivity());
+                    myAlert.myDialog("Have Space", "Please Fill All Every Blank");
+                } else {
+                //No Space
+                uploadValueToServer();
+
+                }
+            } //onClick
+        });
+
+    } //NewRegister
+
+    private void uploadValueToServer() {
+
+
+    }
+
+    private void backController() {
         ImageView imageView = (ImageView) getView().findViewById(R.id.imvBack);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,4 +104,5 @@ public class RegisterFragment extends Fragment{
             }
         });
     }
+
 }   //Main Class
