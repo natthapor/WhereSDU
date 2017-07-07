@@ -4,4 +4,6 @@
     <string name="pass">password :</string>
     <string name="name">name :</string>
     <string name="new_register">New Register</string>
+    <string name="title_have">Have Space</string>
+    <string name="message">Please Fill All Every Blank</string>
 </resources>
