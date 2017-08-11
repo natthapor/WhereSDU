@@ -1,5 +1,6 @@
 package sdu.phewma.nattha.wheresdu.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,7 @@ import org.json.JSONObject;
 import sdu.phewma.nattha.wheresdu.GetAllUser;
 import sdu.phewma.nattha.wheresdu.MyAlert;
 import sdu.phewma.nattha.wheresdu.R;
+import sdu.phewma.nattha.wheresdu.Service;
 
 /**
  * Created by Nattha on 7/6/2017.
@@ -123,6 +125,13 @@ public class MainFragment extends Fragment{
             } else if (strPassword.equals(strPasswordTrue)) {
                 //Password True
                 Toast.makeText(getActivity(), "Welcome" + strName, Toast.LENGTH_SHORT).show();
+
+                //Intent To Service
+                Intent intent = new Intent(getActivity(), Service.class);
+                intent.putExtra("ID", strId);
+                getActivity().startActivity(intent);
+
+
             }else {
                 //Password False
                 MyAlert myAlert = new MyAlert(getActivity());

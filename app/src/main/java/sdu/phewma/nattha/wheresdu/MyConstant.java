@@ -6,8 +6,8 @@ package sdu.phewma.nattha.wheresdu;
 
 public class MyConstant {
 
-    private String urlAddUser = "http://androidthai.in.th/sdu/addDataPor.php";
-    private  String urlJSON = "http://androidthai.in.th/sdu/getAllDataPor.php";
+    private String urlAddUser = "http://androidthai.in.th/sdu/addDataAOM.php";
+    private  String urlJSON = "http://androidthai.in.th/sdu/getAllDataAOM.php";
 
     public String getUrlJSON() {
         return urlJSON;
