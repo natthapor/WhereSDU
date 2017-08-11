@@ -129,8 +129,9 @@ public class MainFragment extends Fragment{
                 //Intent To Service
                 Intent intent = new Intent(getActivity(), Service.class);
                 intent.putExtra("ID", strId);
+                intent.putExtra("Name", strName);
                 getActivity().startActivity(intent);
-
+                getActivity().finish();
 
             }else {
                 //Password False
